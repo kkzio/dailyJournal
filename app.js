@@ -1,8 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
 const moongose = require("mongoose");
-const e = require("express");
 
 const app = express();
 
@@ -11,7 +11,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // db connect
-moongose.connect('mongodb://localhost/blogDB', {useNewUrlParser: true, useUnifiedTopology: true});
+moongose.connect(
+    `mongodb+srv://admin-aji:${process.env.PASSWORD_MONGO}@cluster0.tyks3.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`, 
+    {
+        useNewUrlParser: true, 
+        useUnifiedTopology: true
+    }
+);
 const db = moongose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {

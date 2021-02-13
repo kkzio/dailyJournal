@@ -6,3 +6,4 @@ add journal at /compose
 2. body-parser
 3. lodash
 4. mongoose
+5. dotenv
