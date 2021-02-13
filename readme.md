@@ -1,5 +1,7 @@
 # DAILY Journal
 
+- https://post-daily-journal.herokuapp.com/
+
 add journal at /compose
 
 1. express
